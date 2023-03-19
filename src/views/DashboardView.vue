@@ -25,9 +25,9 @@ import { RouterLink, RouterView } from 'vue-router'
               <!-- <router-link :to="{name:'/get'}" type="button" class="btn btn-outline-secondary">Insert</router-link> -->
               <router-link :to="{ path: '/post' }" type="button" class="btn btn-outline-secondary">Insert</router-link>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <router-link :to="{ path: '/put' }" type="button" class="btn btn-outline-secondary">Update</router-link>
-            </div>
+            </div> -->
           </div>
         </div>
 
