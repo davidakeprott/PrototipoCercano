@@ -39,11 +39,6 @@ const router = createRouter({
         path: '/put',
         name: 'put',
         component: () => import('../components/Componentes_usuario/ActualizarUsuario.vue')
-      },
-      {
-        path: '/delete',
-        name: 'delete',
-        component: () => import('../components/Componentes_usuario/EliminarUsuario.vue')
       }
       ]
     }

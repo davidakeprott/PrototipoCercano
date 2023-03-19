@@ -7,7 +7,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th style="font-weight: bold;">Id</th>
+              <th style="font-weight: bold;display: none;">Id</th>
               <th style="font-weight: bold;">user</th>
               <th style="font-weight: bold;">password</th>
               <th style="font-weight: bold;">fechaRegistro</th>
@@ -18,7 +18,7 @@
           </thead>
           <tbody>
             <tr v-for="usuario in Usuarios" :key="usuario.pkUsuario">
-              <td>{{ usuario.pkUsuario }}</td>
+              <td style="display: none;">{{ usuario.pkUsuario }}</td>
               <td>{{ usuario.user }}</td>
               <td>{{ usuario.password }}</td>
               <td>{{ usuario.fechaRegistro }}</td>
@@ -27,7 +27,7 @@
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                  <button type="button" v-on:click="BuscarEmpleado()" class="btn btn-outline-danger">
+                  <button type="button" v-on:click="borrarArticulo(usuario.pkUsuario)" class="btn btn-outline-danger">
                     Eliminar</button>
                 </div>
               </td>

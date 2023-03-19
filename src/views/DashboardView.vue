@@ -28,9 +28,6 @@ import { RouterLink, RouterView } from 'vue-router'
             <div class="row">
               <router-link :to="{ path: '/put' }" type="button" class="btn btn-outline-secondary">Update</router-link>
             </div>
-            <div class="row">
-              <router-link :to="{ path: '/delete' }" type="button" class="btn btn-outline-secondary">Delete</router-link>
-            </div>
           </div>
         </div>
 
