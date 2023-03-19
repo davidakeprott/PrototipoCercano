@@ -27,7 +27,7 @@
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                  <button type="button" v-on:click="BuscarEmpleado()" class="btn btn-danger">
+                  <button type="button" v-on:click="BuscarEmpleado()" class="btn btn-outline-danger">
                     Eliminar</button>
                 </div>
               </td>
