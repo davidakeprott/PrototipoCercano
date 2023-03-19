@@ -25,29 +25,29 @@ const router = createRouter({
       path: '/dashboard',
       name: 'dashboard',
       component: () => import('../views/DashboardView.vue'),
-     children: [{
-      path:'/get',
-      name:'get',
-      component: () => import('../components/Componentes_usuario/ListaUsuarios.vue')
-     },
-     {
-      path:'/post',
-      name:'post',
-      component: () => import('../components/Componentes_usuario/CrearUsuario.vue')
-     },
-     {
-      path:'/put',
-      name:'put',
-      component: () => import('../components/Componentes_usuario/ActualizarUsuario.vue')
-     },
-     {
-      path:'/delete',
-      name:'delete',
-      component: () => import('../components/Componentes_usuario/EliminarUsuario.vue')
-     }
-    ]
+      children: [{
+        path: '/get',
+        name: 'get',
+        component: () => import('../components/Componentes_usuario/ListaUsuarios.vue')
+      },
+      {
+        path: '/post',
+        name: 'post',
+        component: () => import('../components/Componentes_usuario/CrearUsuario.vue')
+      },
+      {
+        path: '/put',
+        name: 'put',
+        component: () => import('../components/Componentes_usuario/ActualizarUsuario.vue')
+      },
+      {
+        path: '/delete',
+        name: 'delete',
+        component: () => import('../components/Componentes_usuario/EliminarUsuario.vue')
+      }
+      ]
     }
-  
+
   ]
 })
 

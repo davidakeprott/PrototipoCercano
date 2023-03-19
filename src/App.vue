@@ -5,14 +5,12 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
  
-
-
   <div class="row">
     <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div>
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Prototipo 2" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -23,7 +21,7 @@ import HelloWorld from './components/HelloWorld.vue'
   </div>
   <div class="row">
     <div class="container-fluid">
-       <RouterView />
+       <RouterView  />
     </div> 
   </div>
 </template>
@@ -31,7 +29,7 @@ import HelloWorld from './components/HelloWorld.vue'
 <style scoped>
 header {
   line-height: 1.5;
-  max-height: 100vh;
+  max-height: 50vh;
 }
 
 .logo {
