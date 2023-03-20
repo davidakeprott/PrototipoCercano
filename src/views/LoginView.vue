@@ -28,7 +28,7 @@ export default {
         this.respuesta = response.data.result
 
         if (this.respuesta.length>0) {
-          this.$router.push("/dashboard")
+          this.$router.push("/menugeneral")
         }else{
           this.smg="Usuario o password incorrecto :("
           document.getElementById('alert').style.display="block";

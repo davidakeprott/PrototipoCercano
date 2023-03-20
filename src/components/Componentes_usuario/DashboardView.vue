@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <div>
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" style="font-weight: bold;">Dashboard</a>
+          <a class="navbar-brand" style="font-weight: bold;">Dashboard Usuario</a>
         </div>
       </nav>
     </div>
