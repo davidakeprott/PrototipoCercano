@@ -48,25 +48,47 @@ const router = createRouter({
           ]
         },
         {
-          path:'/dashboard_cliente',
-          name:'dashboard_cliente',
+          path: '/dashboard_cliente',
+          name: 'dashboard_cliente',
           component: () => import('../components/Componentes_Cliente/Dashboard_Cliente.vue'),
-          children:[{
-            path:'/getcliente',
-            name:'getcliente',
+          children: [{
+            path: '/getcliente',
+            name: 'getcliente',
             component: () => import('../components/Componentes_Cliente/GetCliente.vue')
           },
           {
-            path:'/postcliente',
-            name:'postcliente',
+            path: '/postcliente',
+            name: 'postcliente',
             component: () => import('../components/Componentes_Cliente/PostCliente.vue')
           },
           {
-            path:'/putcliente',
-            name:'putcliente',
+            path: '/putcliente',
+            name: 'putcliente',
             component: () => import('../components/Componentes_Cliente/PutCliente.vue')
           },
-        ]
+          ]
+        },
+        {
+          path: '/deshboard_depa',
+          name: 'dashboard_depa',
+          component: () => import('../components/Componentes_Depa.vue/Dashboard_Depa.vue'),
+          children: [
+            {
+              path: '/getdepa',
+              name: 'getdepa',
+              component: () => import('../components/Componentes_Depa.vue/GetDepa.vue'),
+            },
+            {
+              path: '/putdepa',
+              name: 'putdepa',
+              component: () => import('../components/Componentes_Depa.vue/PutDepa.vue'),
+            },
+            {
+              path: '/postdepa',
+              name: 'postdepa',
+              component: () => import('../components/Componentes_Depa.vue/PostDepa.vue'),
+            }
+          ]
         }
       ]
     }
