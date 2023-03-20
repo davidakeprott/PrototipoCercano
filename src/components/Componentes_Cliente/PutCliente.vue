@@ -74,9 +74,10 @@
                         </div>
                     </div>
                     <br>
+                    <div id="botoncerrar" style="display: none;">|<router-link :to="{name:'getcliente'}" type="button" class="btn btn-outline-primary">Finalizar</router-link>|</div>
                     <div id="botones" class="row" style="display: none;">
                         <div class="btn-group" role="group">
-                            |<button type="submit" class="btn btn-outline-primary">Agregar</button>|
+                            |<button type="submit" class="btn btn-outline-primary">Actualizar</button>|
                             |<router-link :to="{ name: 'getcliente' }" class="btn btn-outline-danger">Cancelar</router-link>|
                         </div>
 
@@ -125,7 +126,9 @@ export default {
             axios.put('https://localhost:7051/Cliente?id=' + this.pkCliente, cuerpo).then((resutl) => {
                 console.log(resutl.data);
                 document.getElementById("alert").style.display = "block";
+                document.getElementById('botones').style.display = "none";
                 this.smg = "Registro actualizado exitosamente :D/";
+                document.getElementById('botoncerrar').style.display="block";
             })
         },
         Buscar(id) {

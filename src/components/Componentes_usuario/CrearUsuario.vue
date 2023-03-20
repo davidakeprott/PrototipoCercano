@@ -45,11 +45,11 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="btn-group" role="group">
+                        <div class="btn-group" role="group" id="botonesopcion">
                             |<button type="submit" class="btn btn-outline-primary">Agregar</button>|
                             |<router-link :to="{ name: 'get' }" class="btn btn-outline-danger">Cancelar</router-link>|
                         </div>
-
+                        <router-link :to="{ name: 'get' }" class="btn btn-outline-primary" id="finaliza" style="display: none;">Finalizar</router-link>
                     </div>
                     <br>
                     <div class="row">
@@ -93,7 +93,9 @@ export default {
 
                 if (result.status == 200) {
                     document.getElementById("alert").style.display = "block";
+                    document.getElementById('botonesopcion').style.display="none";
                     this.smg = "agregado exitosamente :D/";
+                    document.getElementById('finaliza').style.display="block";
                     console.log(result);
                 }
                 // window.location.href = "dashboard";
