@@ -13,8 +13,8 @@
               <th style="font-weight: bold;">user</th>
               <th style="font-weight: bold;">password</th>
               <th style="font-weight: bold;">fechaRegistro</th>
-              <th style="font-weight: bold;">FkEmpleado</th>
-              <th style="font-weight: bold;">FkRol</th>
+              <th style="font-weight: bold;">Empleado</th>
+              <th style="font-weight: bold;">Rol</th>
               <th style="font-weight: bold;">Acciones</th>
             </tr>
           </thead>
@@ -24,8 +24,8 @@
               <td>{{ usuario.user }}</td>
               <td>{{ usuario.password }}</td>
               <td>{{ usuario.fechaRegistro }}</td>
-              <td>{{ usuario.fkEmpleado }}</td>
-              <td>{{ usuario.fkRol }}</td>
+              <td>{{ usuario.empleado.nombre }}</td>
+              <td>{{ usuario.rol.nombre }}</td>
               <td>
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     consultarUsuario() {
-      axios.get("https://localhost:7051/Usuario").then((result) => {
+      axios.get("https://localhost:7051/Usuario/Multirelacion").then((result) => {
         console.log(result.data);
         this.Usuarios = result.data.result;
 
