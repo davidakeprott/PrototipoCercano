@@ -8,18 +8,19 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="user">ID:</label>
-                                <input type="number" class="form-control" name="user" aria-describedby="helpId"
+                                <!-- <label for="user">ID:</label>
+                                <input type="number" class="form-control" lasCookies="user" aria-describedby="helpId"
                                     id="pkUsuario" placeholder="ID" v-model="pkUsuario" />
+
                                 <small id="peticion" class="form-text" text-muted>Ingresa id del registro que desea
                                     actualizar</small>
                                 <br>
-                                <br>
+                                <br> -->
                                 <div id="botonbusca">
                                     <button type="button" class="btn btn-outline-primary"
-                                        v-on:click="Buscar(pkUsuario)">Buscar</button>
-                                    &#160
-                                    <router-link :to="{ name: 'get' }" class="btn btn-outline-danger">Cancelar</router-link>
+                                        v-on:click="Buscar(recibir)">Aceptar</button>
+                                    <!-- &#160
+                                    <router-link :to="{ lasCookies: 'get' }" class="btn btn-outline-danger">Cancelar</router-link> -->
                                 </div>
                             </div>
                         </div>
@@ -28,7 +29,7 @@
 
                                 <div class="form-group">
                                     <label for="user">user:</label>
-                                    <input type="text" class="form-control" name="user" aria-describedby="helpId" id="user"
+                                    <input type="text" class="form-control" lasCookies="user" aria-describedby="helpId" id="user"
                                         placeholder="usuario" value="" />
 
 
@@ -38,7 +39,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="password">Password:</label>
-                                    <input type="text" class="form-control" name="password" id="password"
+                                    <input type="text" class="form-control" lasCookies="password" id="password"
                                         aria-describedby="helpId" placeholder="password" value="" />
 
                                 </div>
@@ -52,7 +53,7 @@
 
                             <div class="form-group">
                                 <label for="fkEmpleado">fkEmpleado:</label>
-                                <input type="number" class="form-control" name="fkEmpleado" id="fkEmpleado"
+                                <input type="number" class="form-control" lasCookies="fkEmpleado" id="fkEmpleado"
                                     aria-describedby="helpId" placeholder="fkEmpleado" value="" />
                             </div>
                         </div>
@@ -60,13 +61,14 @@
 
                             <div class="form-group">
                                 <label for="fkRol">fkRol:</label>
-                                <input type="number" class="form-control" name="fkRol" id="fkRol" aria-describedby="helpId"
+                                <input type="number" class="form-control" lasCookies="fkRol" id="fkRol" aria-describedby="helpId"
                                     placeholder="fkRol" value="" />
                             </div>
                         </div>
                     </div>
                     <br>
-                    <div id="botoncerrar" style="display: none;">|<router-link :to="{name:'get'}" type="button" class="btn btn-outline-primary">Finalizar</router-link>|</div>
+                    <div id="botoncerrar" style="display: none;">|<router-link :to="{ name: 'get' }" type="button"
+                            class="btn btn-outline-primary">Finalizar</router-link>|</div>
                     <div id="botones" class="row" style="display: none;">
                         <div class="btn-group" role="group">
                             |<button type="submit" class="btn btn-outline-primary">Actualizar</button>|
@@ -88,9 +90,10 @@
 </template>
 
 <script>
+
 import axios from 'axios'
 export default {
-    name: 'putUsuario',
+    lasCookies: 'putUsuario',
     components: {
 
     },
@@ -101,14 +104,25 @@ export default {
             smg: "",
             pkUsuario: 0,
             bad: "",
+            recibir: ""
         };
     },
+    created: function () {
+        this.vercookie();
+        
+    },
+    // beforeMount(){
+    //     this.$root.$on('send',data=>{
+    //         this.recibir=data;
+    //         console.log(this.recibir)
+    //     })
+    // },
     methods: {
         formulario() {
             const tiempoTranscurrido = Date.now();
             const hoy = new Date(tiempoTranscurrido);
             var cuerpo = {
-                pkUsuario: this.pkUsuario,
+                pkUsuario: this.recibir,
                 user: document.getElementById('user').value,
                 password: document.getElementById('password').value,
                 fechaRegistro: hoy.toISOString(),
@@ -117,12 +131,12 @@ export default {
 
 
             };
-            axios.put('https://localhost:7051/Usuario?id=' + this.pkUsuario, cuerpo).then((resutl) => {
+            axios.put('https://localhost:7051/Usuario?id=' + this.recibir, cuerpo).then((resutl) => {
                 console.log(resutl.data);
                 document.getElementById('botones').style.display = "none";
                 document.getElementById("alert").style.display = "block";
                 this.smg = "Registro actualizado exitosamente :D/";
-                document.getElementById('botoncerrar').style.display="block";
+                document.getElementById('botoncerrar').style.display = "block";
             })
         },
         Buscar(id) {
@@ -135,7 +149,7 @@ export default {
                         this.bad = "No hay ningun registro de ese ID"
                     } else {
                         document.getElementById('botonbusca').style.display = "none";
-                        document.getElementById('peticion').style.display = "none";
+                        // document.getElementById('peticion').style.display = "none";
                         document.getElementById('user-password', 'fk-empleado-rol').style.display = "block";
                         document.getElementById('fk-empleado-rol').style.display = "block";
                         document.getElementById('botones').style.display = "block";
@@ -155,6 +169,34 @@ export default {
             }
 
 
+        },
+        vercookie() {
+            var lasCookies = document.cookie;
+            
+            function readCookie(lasCookies) {
+
+                var lasCookiesEQ = lasCookies + "=";
+                var ca = document.cookie.split(';');
+
+                for (var i = 0; i < ca.length; i++) {
+
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(lasCookiesEQ) == 0) {
+                        return decodeURIComponent(c.substring(lasCookiesEQ.length, c.length));
+                    }
+
+                }
+
+                return null;
+
+            }
+
+            var galleta= readCookie('valor')
+            console.log(galleta)
+            this.recibir=galleta
+
+        
         }
 
     },

@@ -4,9 +4,9 @@
       <div class="card-header"><strong>Lista de Usuarios</strong></div>
 
       <div class="card_body">
-        <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button>
+        <!-- <button type="button" v-on:click="  editaregistro()" class="btn btn-outline-warning">Editar</button> -->
         <table class="table">
-          
+
           <thead>
             <tr>
               <th style="font-weight: bold;">Id</th>
@@ -30,10 +30,13 @@
                 <div class="btn-group" role="label" aria-label="">
                   <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                   <button type="button" v-on:click="borrarUsuario(usuario.pkUsuario)" class="btn btn-outline-danger">
-                    Eliminar</button>          
+                    Eliminar</button>
+                  <button type="button" v-on:click="editaregistro(usuario.pkUsuario)"
+                    class="btn btn-outline-warning">Editar</button>
+
                 </div>
               </td>
-              
+
             </tr>
           </tbody>
         </table>
@@ -48,10 +51,9 @@
 <script>
 import axios from "axios";
 
-
 export default {
 
-  components:{
+  components: {
 
   },
   data() {
@@ -59,38 +61,45 @@ export default {
       Usuarios: [],
       Empleado: [],
       smg: "",
+      Enviar: 0
     };
   },
   created: function () {
     this.consultarUsuario();
   },
+  // watch:{
+  //   Enviar:function(){
+  //     this.$root.$emit('send',this.Enviar)
+  //   }
+  // },
   methods: {
     consultarUsuario() {
       axios.get("https://localhost:7051/Usuario/Multirelacion").then((result) => {
         console.log(result.data);
         this.Usuarios = result.data.result;
 
-       });
+      });
 
 
     },
 
     borrarUsuario(id) {
-      var pregunta=window.confirm('Esta se seguro de eliminar este registro?');
+      var pregunta = window.confirm('Esta se seguro de eliminar este registro?');
 
-      if(pregunta===true){
+      if (pregunta === true) {
         axios.delete("https://localhost:7051/Usuario/" + id);
         window.location.href = "get";
-        
-      }else{
-        
-      }  
+
+      } else {
+
+      }
 
     },
-    editaregistro() {
-    window.location.href="/putUsuario";
+    editaregistro(id) {
+      console.log(id)
+      window.location.href="/putUsuario";
 
-    
+      document.cookie = "valor="+id+"; max-age=20";
 
     },
   },
