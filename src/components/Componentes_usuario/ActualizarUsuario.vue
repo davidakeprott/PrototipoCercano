@@ -193,7 +193,6 @@ export default {
             }
 
             var galleta= readCookie('valor')
-            console.log(galleta)
             this.recibir=galleta
 
         
