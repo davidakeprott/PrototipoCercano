@@ -133,6 +133,50 @@ const router = createRouter({
               component: () => import('../components/Componente_Facturas/PutFacturas.vue'),
             },
           ]
+        },
+        {
+          path:"/dashboard_puesto",
+          name:'dashboard_puesto',
+          component: () => import('../components/Componentes_Puesto/Dashboard_Puesto.vue'),
+          children:[
+            {
+              path:'/getpuesto',
+              name:'getpuesto',
+              component: () => import('../components/Componentes_Puesto/GetPuesto.vue'),
+            },
+            {
+              path:'/postpuesto',
+              name:'postpuesto',
+              component: () => import('../components/Componentes_Puesto/PostPuesto.vue'),
+            },
+            {
+              path:'/putpuesto',
+              name:'putpuesto',
+              component: () => import('../components/Componentes_Puesto/PutPuesto.vue'),
+            },
+          ]
+        },
+        {
+          path:'/dashboard_rol',
+          name:'dashboard_rol',
+          component: () => import('../components/Componente_Rol/Dashboard_Rol.vue'),
+          children:[
+            {
+              path:'/getrol',
+              name:'getrol',
+              component: () => import('../components/Componente_Rol/GetRol.vue'),
+            },
+            {
+              path:'/postrol',
+              name:'postrol',
+              component: () => import('../components/Componente_Rol/PostRol.vue'),
+            },
+            {
+              path:'/putrol',
+              name:'putrol',
+              component: () => import('../components/Componente_Rol/PutRol.vue'),
+            },
+          ]
         }
       ]
     }
