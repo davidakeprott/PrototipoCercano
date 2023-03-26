@@ -195,7 +195,7 @@ export default {
             var galleta= readCookie('valor')
             this.recibir=galleta
 
-        
+            
         }
 
     },

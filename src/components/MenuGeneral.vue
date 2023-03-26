@@ -16,11 +16,20 @@ import { RouterLink, RouterView } from 'vue-router'
                     <ul class="dropdown-menu">
                         <li><button class="btn btn-outline-secondary dropdown-item"
                                 v-on:click="AbrirDashUsuario()">Dashboard Usuarios</button></li>
+
                         <li><button class="btn btn-outline-secondary dropdown-item"
                                 v-on:click="AbrirDashCliente()">Dashboard Cliente</button></li>
-                        <li><button class="btn btn-outline-secondary dropdown-item"
-                                v-on:click="AbrirDashDepa()">Dashboard Departamentos</button></li>
 
+                        <li><button class="btn btn-outline-secondary dropdown-item" v-on:click="AbrirDashDepa()">Dashboard
+                                Departamentos</button></li>
+
+                        <li><button class="btn btn-outline-secondary dropdown-item"
+                                v-on:click="AbrirDashEmpleado()">Dashboard
+                                Empleados</button></li>
+
+                        <li><button class="btn btn-outline-secondary dropdown-item"
+                                v-on:click="AbrirDashFacturas()">Dashboard
+                                Facturas</button></li>
                     </ul>
                 </div>
                 <div class="col"></div>
@@ -53,8 +62,14 @@ export default {
         AbrirDashCliente() {
             window.location.href = "/getcliente";
         },
-        AbrirDashDepa(){
+        AbrirDashDepa() {
             window.location.href = "/getdepa";
+        },
+        AbrirDashEmpleado() {
+            window.location.href = "/getempleado"
+        },
+        AbrirDashFacturas(){
+            window.location.href="/getfactura"
         }
     }
 }

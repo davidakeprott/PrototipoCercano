@@ -9,7 +9,7 @@
 
           <thead>
             <tr>
-              <th style="font-weight: bold;">Id</th>
+              <th style="font-weight: bold;display: none;">Id</th>
               <th style="font-weight: bold;">user</th>
               <th style="font-weight: bold;">password</th>
               <th style="font-weight: bold;">fechaRegistro</th>
@@ -20,7 +20,7 @@
           </thead>
           <tbody>
             <tr v-for="usuario in Usuarios" :key="usuario.pkUsuario">
-              <td>{{ usuario.pkUsuario }}</td>
+              <td style="display: none;">{{ usuario.pkUsuario }}</td>
               <td>{{ usuario.user }}</td>
               <td>{{ usuario.password }}</td>
               <td>{{ usuario.fechaRegistro }}</td>

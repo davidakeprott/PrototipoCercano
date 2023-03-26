@@ -89,6 +89,50 @@ const router = createRouter({
               component: () => import('../components/Componentes_Depa.vue/PostDepa.vue'),
             }
           ]
+        },
+        {
+          path:'/dashboard_empleado',
+          name:'dashboard_empleado',
+          component: () => import('../components/Componente_Empleado/DashboardEmpleado.vue'),
+          children:[
+            {
+              path:'/getempleado',
+              name:'getempleado',
+              component: () => import('../components/Componente_Empleado/GetEmpleado.vue'),
+            },
+            {
+              path:'/postempleado',
+              name:'postempleado',
+              component: () => import('../components/Componente_Empleado/PostEmpleado.vue'),
+            },
+            {
+              path:'/putempleado',
+              name:'putempleado',
+              component: () => import('../components/Componente_Empleado/PutEmpleado.vue'),
+            },
+          ]
+        },
+        {
+          path:'/dashboard_facturas',
+          name:'dashboard_facturas',
+          component: () => import('../components/Componente_Facturas/Dashboard_Facturas.vue'),
+          children:[
+            {
+              path:'/getfactura',
+              name:'getfactura',
+              component: () => import('../components/Componente_Facturas/GetFacturas.vue'),
+            },
+            {
+              path:'/postfactura',
+              name:'postfactura',
+              component: () => import('../components/Componente_Facturas/PostFacturas.vue'),
+            },
+            {
+              path:'/putfactura',
+              name:'putfactura',
+              component: () => import('../components/Componente_Facturas/PutFacturas.vue'),
+            },
+          ]
         }
       ]
     }
