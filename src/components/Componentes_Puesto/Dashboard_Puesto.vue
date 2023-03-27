@@ -29,8 +29,14 @@ import { RouterLink, RouterView } from 'vue-router'
               <router-link :to="{ path: '/put' }" type="button" class="btn btn-outline-secondary">Update</router-link>
             </div> -->
           </div>
-        </div>
-
+        </div>    
+        &#160
+        &#160
+        &#160
+        &#160
+        &#160
+        &#160
+        &#160     
         <div id="procesos" class="col">
           <router-view></router-view>
         </div>

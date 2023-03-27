@@ -30,7 +30,13 @@ import { RouterLink, RouterView } from 'vue-router'
             </div> -->
           </div>
         </div>
-
+        &#160
+        &#160
+        &#160
+        &#160
+        &#160
+        &#160
+        &#160
         <div id="procesos" class="col">
           <router-view></router-view>
         </div>

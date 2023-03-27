@@ -13,7 +13,7 @@
                 <th style="font-weight: bold;">razonsocial</th>
                 <th style="font-weight: bold;">fecha</th>
                 <th style="font-weight: bold;">rfc</th>
-                <th style="font-weight: bold;">fkCliente</th>
+                <th style="font-weight: bold;">Cliente</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
@@ -23,7 +23,7 @@
                 <td>{{ fac.razonSocial }}</td>
                 <td>{{ fac.fecha }}</td>
                 <td>{{ fac.rfc }}</td>
-                <td>{{ fac.fkCliente }}</td>
+                <td>{{ fac.cliente.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
@@ -63,7 +63,7 @@
     },
     methods: {
       consultarfac() {
-        axios.get('https://localhost:7051/Factura').then((result) => {
+        axios.get('https://localhost:7051/Multirelacionget').then((result) => {
           console.log(result.data);
           this.Facturas = result.data.result;
   

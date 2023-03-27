@@ -4,26 +4,24 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
- 
   <div class="row">
-    <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-    <div>
-      <HelloWorld msg="Prototipo 2" />
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <HelloWorld msg="Prototipo 2" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <!-- <RouterLink to="/">Home</RouterLink> -->
         <router-link :to="{ path: '/Login' }">Login</router-link>
-      </nav>
-    </div>
-  </header>
+
+      </div>
+    </nav>
+
   </div>
   <br>
   <div class="row">
     <div class="container-fluid">
-       <RouterView  />
-    </div> 
+        <RouterView />
+      </div>
   </div>
 </template>
 
@@ -72,6 +70,10 @@ nav a:first-of-type {
 
   .logo {
     margin: 0 2rem 0 0;
+  }
+
+  .gg {
+    text-align: center;
   }
 
   header .wrapper {

@@ -14,8 +14,8 @@
                 <th style="font-weight: bold;">Apellido</th>
                 <th style="font-weight: bold;">Direccion</th>
                 <th style="font-weight: bold;">Ciudad</th>
-                <th style="font-weight: bold;">fkPuesto</th>
-                <th style="font-weight: bold;">fkDepartamento</th>
+                <th style="font-weight: bold;">Puesto</th>
+                <th style="font-weight: bold;">Departamento</th>
                 <th style="font-weight: bold;">Acciones</th>
               </tr>
             </thead>
@@ -26,8 +26,8 @@
                 <td>{{ emple.apellidos }}</td>
                 <td>{{ emple.dirreccion }}</td>
                 <td>{{ emple.ciudad }}</td>
-                <td>{{ emple.fkPuesto }}</td>
-                <td>{{ emple.fkDepartamento }}</td>
+                <td>{{ emple.puesto.nombre }}</td>
+                <td>{{ emple.departamento.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
@@ -67,7 +67,7 @@
     },
     methods: {
       consultaremple() {
-        axios.get("https://localhost:7051/Empleado").then((result) => {
+        axios.get("https://localhost:7051/Multirelacion").then((result) => {
           console.log(result.data);
           this.Empleados = result.data.result;
   
