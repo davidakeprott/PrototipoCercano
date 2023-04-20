@@ -75,7 +75,7 @@ export default {
   methods: {
     consultarUsuario() {
       axios.get("https://localhost:7051/Usuario/Multirelacion").then((result) => {
-        console.log(result.data);
+        
         this.Usuarios = result.data.result;
 
       });
@@ -96,11 +96,7 @@ export default {
 
     },
     editaregistro(id) {
-      console.log(id)
-      window.location.href="/putUsuario";
-
-      document.cookie = "valor="+id+"; max-age=20";
-
+      this.$router.push("/putUsuario/"+id)
     },
   },
 

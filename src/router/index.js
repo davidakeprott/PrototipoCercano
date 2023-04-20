@@ -41,7 +41,7 @@ const router = createRouter({
             component: () => import('../components/Componentes_usuario/CrearUsuario.vue')
           },
           {
-            path: '/putUsuario',
+            path: '/putUsuario/:pkUsuario',
             name: 'putUsuario',
             component: () => import('../components/Componentes_usuario/ActualizarUsuario.vue')
           }
